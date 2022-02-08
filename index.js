@@ -23,16 +23,10 @@ const getRandomSize = (max, min) => {
     return Math.round(Math.random() * (max-min) + min)
 }
 
-function getRandomColor() {
-    const findIndex = Math.floor(Math.random() * colors.length)
-    return colors[findIndex]
-}
-
 const createFinishCircle = () => {
     const circle = document.createElement('div')
     circle.classList.add('circle')
 
-    const color = getRandomColor()
     const size = getRandomSize(10, 20)
     const {width, height} = board.getBoundingClientRect()
 
@@ -43,7 +37,6 @@ const createFinishCircle = () => {
     circle.style.height = `${size}px`
     circle.style.top = `${y}px`
     circle.style.left = `${x}px`
-    circle.style.background = color
 
     board.append(circle)
 }
